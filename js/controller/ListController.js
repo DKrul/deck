@@ -151,13 +151,12 @@ app.controller('ListController', function ($scope, $location, $filter, BoardServ
 	};
 
 	$scope.boardUpdateBegin = function(board) {
-		$scope.updatingBoard = board;
+		$scope.updatingBoard = angular.copy(board);
 	};
 
 	$scope.boardUpdateReset = function(board) {
 		board.title = $scope.updatingBoard.title;
 		board.color = $scope.updatingBoard.color;
-		console.log(board);
 		filterData();
 		board.status.edit = false;
 	};
